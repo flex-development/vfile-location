@@ -94,7 +94,7 @@
     "@types/chai": "4.3.16",
     "@types/eslint": "8.56.10",
     "@types/is-ci": "3.0.4",
-    "@types/node": "20.12.8",
+    "@types/node": "20.12.10",
     "@types/node-notifier": "8.0.5",
     "@typescript-eslint/eslint-plugin": "7.8.0",
     "@typescript-eslint/parser": "7.8.0",
