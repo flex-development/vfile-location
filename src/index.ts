@@ -3,4 +3,5 @@
  * @module vfile-location
  */
 
-export {}
+export type * from './interfaces'
+export { default as Location } from './location'

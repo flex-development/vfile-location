@@ -1378,6 +1378,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@faker-js/faker@npm:9.0.0-alpha.0":
+  version: 9.0.0-alpha.0
+  resolution: "@faker-js/faker@npm:9.0.0-alpha.0"
+  checksum: 10/e9bb4b32ec170be4bb484826d221de6bfd3a515f57bb9d9f7f6e24816187399dd17d1527a8b4d0f02f891c1fac6d8751f0ab0d0d8d6a9854309ab3102e1267cd
+  languageName: node
+  linkType: hard
+
 "@flex-development/aggregate-error-ponyfill@npm:3.1.1":
   version: 3.1.1
   resolution: "@flex-development/aggregate-error-ponyfill@npm:3.1.1::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40flex-development%2Faggregate-error-ponyfill%2F3.1.1%2F06789d036a0573f507331cc4d1068616a4e58c9e"
@@ -1804,6 +1811,7 @@ __metadata:
     "@arethetypeswrong/cli": "npm:0.15.3"
     "@commitlint/cli": "npm:19.3.0"
     "@commitlint/types": "npm:19.0.3"
+    "@faker-js/faker": "npm:9.0.0-alpha.0"
     "@flex-development/commitlint-config": "npm:1.0.1"
     "@flex-development/decorator-regex": "npm:2.0.0"
     "@flex-development/esm-types": "npm:2.0.0"
