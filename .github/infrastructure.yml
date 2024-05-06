@@ -168,7 +168,7 @@ repository:
   automated_security_fixes: true
   default_branch: main
   delete_branch_on_merge: true
-  description: utility to convert between positional and offset based locations
+  description: utility to convert between point and offset based locations
   has_issues: true
   has_projects: true
   has_wiki: false
