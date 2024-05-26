@@ -17,15 +17,18 @@ import type { Point } from './interfaces'
  */
 class Location {
   /**
-   * List, where each index is the original index of a character in the source
-   * file, and each item is a {@linkcode Point} relative to {@linkcode start}.
+   * Map, where each key/value pair is either the index of a character in the
+   * source file ({@linkcode Offset}) and a {@linkcode Point}, or a line and
+   * column in the source file and an offset.
+   *
+   * Both the key and value are relative to {@linkcode start}.
    *
    * @private
    * @readonly
    * @instance
-   * @member {Readonly<Point>[]}
+   * @member {Record<Offset, Readonly<Point>> & Record<string, Offset>}
    */
-  readonly #indices: Readonly<Point>[]
+  readonly #indices: Record<Offset, Readonly<Point>> & Record<string, Offset>
 
   /**
    * Point before first character in source file.
@@ -54,7 +57,7 @@ class Location {
    * @param {(Point | null)?} [start] - Point before first character in `file`
    */
   constructor(file: Value | VFile, start?: Point | null) {
-    this.#indices = []
+    this.#indices = {}
     this.start = Object.assign({}, start ?? { column: 1, line: 1, offset: 0 })
     this.start = Object.freeze(this.start)
 
@@ -67,7 +70,8 @@ class Location {
 
     // index file
     for (const char of String(file) + '\n') {
-      this.#indices.push(Object.freeze({ ...point }))
+      this.#indices[point.offset] = Object.freeze({ ...point })
+      this.#indices[`${point.line}:${point.column}`] = point.offset
 
       // advance point
       if (/[\n\r]/.test(char)) {
@@ -97,9 +101,7 @@ class Location {
    * @return {Offset} Index of character in source file or `-1`
    */
   public offset(point?: unist.Point | null): Offset {
-    return this.#indices.find(pt => {
-      return !!point && pt.line === point.line && pt.column === point.column
-    })?.offset ?? -1
+    return this.#indices[`${point?.line}:${point?.column}`] ?? -1
   }
 
   /**
@@ -118,7 +120,7 @@ class Location {
    * @return {Point} Place in source file
    */
   public point(offset?: Offset | null): Point {
-    return this.#indices.find(pt => pt.offset === offset) ?? {
+    return this.#indices[offset ?? Number.NaN] ?? {
       column: -1,
       line: -1,
       offset: offset ?? -1

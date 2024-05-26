@@ -131,6 +131,7 @@ const config: UserConfigExport = defineConfig((env: ConfigEnv): UserConfig => {
         }
       },
       setupFiles: ['./__tests__/setup/index.ts'],
+      slowTestThreshold: 300 * (env.mode === 'benchmark' ? 9 : 1),
       snapshotFormat: {
         callToJSON: true,
         min: false,

@@ -23,6 +23,7 @@
     "CHANGELOG.md",
     "LICENSE.md",
     "RELEASE_NOTES.md",
+    "__fixtures__/underscore-1.5.2.js",
     "yarn.lock"
   ],
   "exec": {

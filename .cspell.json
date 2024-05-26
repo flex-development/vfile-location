@@ -28,6 +28,7 @@
     ".husky/_/",
     ".vscode/settings.json",
     ".yarn/",
+    "__fixtures__/underscore-1.5.2.js",
     "dist/",
     "patches/",
     "yarn.lock"
