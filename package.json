@@ -139,7 +139,7 @@
     "ts-dedent": "2.2.0",
     "typescript": "5.5.0-beta",
     "vitest": "2.0.0-beta.3",
-    "yaml-eslint-parser": "1.2.2"
+    "yaml-eslint-parser": "1.2.3"
   },
   "resolutions": {
     "@types/unist": "3.0.2",
