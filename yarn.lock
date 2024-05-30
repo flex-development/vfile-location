@@ -1823,12 +1823,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@flex-development/unist-util-types@npm:1.5.0":
-  version: 1.5.0
-  resolution: "@flex-development/unist-util-types@npm:1.5.0::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40flex-development%2Funist-util-types%2F1.5.0%2Ff0e9fa8529ad497fbc7ee93c219a06439f67b836"
+"@flex-development/unist-util-types@npm:1.6.0":
+  version: 1.6.0
+  resolution: "@flex-development/unist-util-types@npm:1.6.0::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40flex-development%2Funist-util-types%2F1.6.0%2F4e40cc3dadce847a603efae356dca9da4af17bdb"
   peerDependencies:
     "@types/unist": ">=3.0.2"
-  checksum: 10/d4278b20b19d64ff60aa7d03a4061fbd9b467a8272e1577f91c91c11a697da44cf24730cc95fc8f2564533aa8a8a33296c76093f8458c3a6a977a76d1f265fc4
+  checksum: 10/cdbf97ecb7a24f36e427b531042fee85704cbfa613aaf0146a8633ad48244072d6c66de5aa23d472dd4216c74174cfbb25f46a5b27f937a6913cee03c7da0f31
   languageName: node
   linkType: hard
 
@@ -1848,7 +1848,7 @@ __metadata:
     "@flex-development/mlly": "npm:1.0.0-alpha.18"
     "@flex-development/pathe": "npm:2.0.0"
     "@flex-development/tutils": "npm:6.0.0-alpha.25"
-    "@flex-development/unist-util-types": "npm:1.5.0"
+    "@flex-development/unist-util-types": "npm:1.6.0"
     "@html-eslint/eslint-plugin": "npm:0.24.1"
     "@html-eslint/parser": "npm:0.24.1"
     "@types/chai": "npm:4.3.16"
