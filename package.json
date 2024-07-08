@@ -1,7 +1,7 @@
 {
   "name": "@flex-development/vfile-location",
   "description": "utility to convert between point (line/column) and offset (range) based locations",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "keywords": [
     "location",
     "offset",
