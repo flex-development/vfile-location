@@ -70,7 +70,7 @@ class Location {
 
     // index file
     for (const char of String(file) + '\n') {
-      this.#indices[point.offset] = Object.freeze({ ...point })
+      this.#indices[point.offset] = { ...point }
       this.#indices[`${point.line}:${point.column}`] = point.offset
 
       // advance point
