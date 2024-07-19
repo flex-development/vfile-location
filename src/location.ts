@@ -31,7 +31,7 @@ class Location {
   readonly #indices: Record<Offset, Readonly<Point>> & Record<string, Offset>
 
   /**
-   * Point before first character in source file.
+   * Point before first character in file.
    *
    * @see {@linkcode Point}
    *
@@ -53,34 +53,39 @@ class Location {
    * @see {@linkcode VFile}
    * @see {@linkcode Value}
    *
-   * @param {Value | VFile} file - File to index
-   * @param {(Point | null)?} [start] - Point before first character in `file`
+   * @param {Value | VFile | null | undefined} [file] - File to index
+   * @param {Point | null | undefined} [start] - Point before first character
    */
-  constructor(file: Value | VFile, start?: Point | null) {
+  constructor(
+    file?: Value | VFile | null | undefined,
+    start?: Point | null | undefined
+  ) {
     this.#indices = {}
     this.start = Object.assign({}, start ?? { column: 1, line: 1, offset: 0 })
     this.start = Object.freeze(this.start)
 
-    /**
-     * Iteration point.
-     *
-     * @const {Point} point
-     */
-    const point: Point = { ...this.start }
-
     // index file
-    for (const char of String(file) + '\n') {
-      this.#indices[point.offset] = { ...point }
-      this.#indices[`${point.line}:${point.column}`] = point.offset
+    if (file !== null && file !== undefined) {
+      /**
+       * Iteration point.
+       *
+       * @const {Point} point
+       */
+      const point: Point = { ...this.start }
 
-      // advance point
-      if (/[\n\r]/.test(char)) {
-        point.column = 1
-        point.line++
-        point.offset++
-      } else {
-        point.column++
-        point.offset++
+      for (const char of String(file) + '\n') {
+        this.#indices[point.offset] = { ...point }
+        this.#indices[`${point.line}:${point.column}`] = point.offset
+
+        // advance point
+        if (/[\n\r]/.test(char)) {
+          point.column = 1
+          point.line++
+          point.offset++
+        } else {
+          point.column++
+          point.offset++
+        }
       }
     }
   }
@@ -97,10 +102,10 @@ class Location {
    * @public
    * @instance
    *
-   * @param {(unist.Point | null)?} [point] - Place in source file
-   * @return {Offset} Index of character in source file or `-1`
+   * @param {unist.Point | null | undefined} [point] - Place in file
+   * @return {Offset} Index of character in file or `-1`
    */
-  public offset(point?: unist.Point | null): Offset {
+  public offset(point?: unist.Point | null | undefined): Offset {
     return this.#indices[`${point?.line}:${point?.column}`] ?? -1
   }
 
@@ -116,10 +121,10 @@ class Location {
    * @public
    * @instance
    *
-   * @param {(Offset | null)?} [offset] - Index of character in source file
-   * @return {Point} Place in source file
+   * @param {Offset | null | undefined} [offset] - Index of character in file
+   * @return {Point} Place in file
    */
-  public point(offset?: Offset | null): Point {
+  public point(offset?: Offset | null | undefined): Point {
     return this.#indices[offset ?? Number.NaN] ?? {
       column: -1,
       line: -1,

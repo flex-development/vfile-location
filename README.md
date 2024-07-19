@@ -19,7 +19,7 @@
 - [Install](#install)
 - [Use](#use)
 - [API](#api)
-  - [`Location(file[, start])`](#locationfile-start)
+  - [`Location([file][, start])`](#locationfile-start)
     - [`Location#offset([point])`](#locationoffsetpoint)
     - [`Location#point([offset])`](#locationpointoffset)
   - [`Point`](#point)
@@ -94,14 +94,14 @@ console.log(loc.point(pt.offset)) // => pt
 
 This package exports the identifier [`Location`](#locationfile-start). There is no default export.
 
-### `Location(file[, start])`
+### `Location([file][, start])`
 
 Create a new location index to translate between point and offset based locations in `file`.
 
 Pass a `start` point to make relative conversions. Any point or offset accessed will be relative to the given point.
 
-- `file` ([`Value`][vfile-value] | [`VFile`][vfile-api]) &mdash; file to index
-- `start` ([`Point`](#point) | `null` | `undefined`) &mdash; point before first character in `file`
+- `file` ([`Value`][vfile-value] | [`VFile`][vfile-api] | `null` | `undefined`) &mdash; file to index
+- `start` ([`Point`](#point) | `null` | `undefined`) &mdash; point before first character
 
 #### `Location#offset([point])`
 
@@ -111,11 +111,11 @@ Get an offset for `point`.
 
 ##### Parameters
 
-- `point` ([`unist.Point`][point] | `null` | `undefined`) &mdash; place in source file
+- `point` ([`unist.Point`][point] | `null` | `undefined`) &mdash; place in file
 
 ##### Returns
 
-([`Offset`][offset]) Index of character in source file or `-1`.
+([`Offset`][offset]) Index of character in file or `-1`.
 
 #### `Location#point([offset])`
 
@@ -126,11 +126,11 @@ Get a point for `offset`.
 
 ##### Parameters
 
-- `offset` ([`Offset`][offset] | `null` | `undefined`) &mdash; index of character in source file
+- `offset` ([`Offset`][offset] | `null` | `undefined`) &mdash; index of character in file
 
 ##### Returns
 
-([`Point`](#point)) Place in source file.
+([`Point`](#point)) Place in file.
 
 ### `Point`
 
