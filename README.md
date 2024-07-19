@@ -20,9 +20,17 @@
 - [Use](#use)
 - [API](#api)
   - [`Location([file][, start])`](#locationfile-start)
+    - [`Location#indices`](#locationindices)
     - [`Location#offset([point])`](#locationoffsetpoint)
+    - [`Location#place`](#locationplace)
     - [`Location#point([offset])`](#locationpointoffset)
+    - [`Location#start`](#locationstart)
+  - [`Column`](#column)
+  - [`Indices`](#indices)
+  - [`Line`](#line)
+  - [`Offset`](#offset)
   - [`Point`](#point)
+  - [`SerializedPoint`](#serializedpoint)
 - [Types](#types)
 - [Contribute](#contribute)
 
@@ -32,7 +40,7 @@ This is a tiny but useful package that facilitates conversions between [points a
 
 ## When should I use this?
 
-This utility is useful when adding [*positional information*][positional information] to [unist][unist] nodes, or when
+This utility is useful when adding [*positional information*][positional-information] to [unist][unist] nodes, or when
 building packages that require location data, such as a set of lint rules.
 
 ## Install
@@ -100,8 +108,18 @@ Create a new location index to translate between point and offset based location
 
 Pass a `start` point to make relative conversions. Any point or offset accessed will be relative to the given point.
 
+An incremental index can be built when `file` is `null` or `undefined`, in which case [`indices`](#locationindices) (and
+[`place`](#locationplace)) must be updated manually.
+
 - `file` ([`Value`][vfile-value] | [`VFile`][vfile-api] | `null` | `undefined`) &mdash; file to index
 - `start` ([`Point`](#point) | `null` | `undefined`) &mdash; point before first character
+
+#### `Location#indices`
+
+([`Indices`](#indices))
+Map, where each key/value pair is either the index of a character in the file ([offset](#offset)) and a [point](#point),
+or a [line and column](#serializedpoint) in the file and an offset.
+Both the key and value are relative to [`start`](#locationstart).
 
 #### `Location#offset([point])`
 
@@ -115,7 +133,15 @@ Get an offset for `point`.
 
 ##### Returns
 
-([`Offset`][offset]) Index of character in file or `-1`.
+([`Offset`](#offset)) Index of character in file or `-1`.
+
+#### `Location#place`
+
+([`Point`](#point))
+Current point.
+
+> 👉 Useful for building an incremental index. This point is deeply equal to [`start`](#locationstart) when a file is
+> auto-indexed and never altered.
 
 #### `Location#point([offset])`
 
@@ -126,11 +152,49 @@ Get a point for `offset`.
 
 ##### Parameters
 
-- `offset` ([`Offset`][offset] | `null` | `undefined`) &mdash; index of character in file
+- `offset` ([`Offset`](#offset) | `null` | `undefined`) &mdash; index of character in file
 
 ##### Returns
 
 ([`Point`](#point)) Place in file.
+
+#### `Location#start`
+
+([`Readonly<Point>`](#point))
+Point before first character in file.
+
+### `Column`
+
+Column in a source file (`1`-indexed integer) (TypeScript type).
+
+```ts
+type Column = number
+```
+
+### `Indices`
+
+Map, where each key/value pair is either the index of a character in a source file ([offset](#offset)) and a
+[point](#point), or a [line and column](#serializedpoint) in the source file and an offset (TypeScript type).
+
+```ts
+type Indices = { [offset: Offset]: Point; [point: SerializedPoint]: Offset }
+```
+
+### `Line`
+
+Line in a source file (`1`-indexed integer) (TypeScript type).
+
+```ts
+type Line = number
+```
+
+### `Offset`
+
+Index of a character in a source file (`0`-indexed integer) (TypeScript type).
+
+```ts
+type Offset = number
+```
 
 ### `Point`
 
@@ -138,9 +202,17 @@ One place in a source file (TypeScript interface).
 
 #### Properties
 
-- `column` (`number`) &mdash; column in source file (`1`-indexed integer)
-- `line` (`number`) &mdash; line in source file (`1`-indexed integer)
-- `offset` ([`Offset`][offset]) &mdash; index of character in source file (`0`-indexed integer)
+- `column` ([`Column`](#column)) &mdash; column in source file (`1`-indexed integer)
+- `line` ([`Line`](#line)) &mdash; line in source file (`1`-indexed integer)
+- `offset` ([`Offset`](#offset)) &mdash; index of character in source file (`0`-indexed integer)
+
+### `SerializedPoint`
+
+String representing one place in a source file (TypeScript type).
+
+```ts
+type SerializedPoint = `${Line}:${Column}`
+```
 
 ## Types
 
@@ -155,9 +227,8 @@ community you agree to abide by its terms.
 
 [esm]: https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c
 [esmsh]: https://esm.sh/
-[offset]: https://github.com/flex-development/unist-util-types#offset
 [point]: https://github.com/syntax-tree/unist#point
-[positional information]: https://github.com/syntax-tree/unist#positional-information
+[positional-information]: https://github.com/syntax-tree/unist#positional-information
 [typescript]: https://www.typescriptlang.org
 [unist]: https://github.com/syntax-tree/unist
 [vfile]: https://github.com/vfile/vfile

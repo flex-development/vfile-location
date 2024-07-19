@@ -3,17 +3,26 @@
  * @module vfile-location/interfaces/Point
  */
 
-import type { Offset } from '@flex-development/unist-util-types'
-import type * as unist from 'unist'
+import type { Column, Line, Offset } from '@flex-development/unist-util-types'
 
 /**
  * One place in a source file.
- *
- * @see {@linkcode unist.Point}
- *
- * @extends {unist.Point}
  */
-interface Point extends unist.Point {
+interface Point {
+  /**
+   * Column in a source file (`1`-indexed integer).
+   *
+   * @see {@linkcode Column}
+   */
+  column: Column
+
+  /**
+   * Line in a source file (`1`-indexed integer).
+   *
+   * @see {@linkcode Line}
+   */
+  line: Line
+
   /**
    * Index of character in a source file (`0`-indexed integer).
    *

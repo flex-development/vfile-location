@@ -7,6 +7,7 @@ import type { Offset } from '@flex-development/unist-util-types'
 import type * as unist from 'unist'
 import type { VFile, Value } from 'vfile'
 import type { Point } from './interfaces'
+import type { Indices } from './types'
 
 /**
  * Location index.
@@ -18,17 +19,32 @@ import type { Point } from './interfaces'
 class Location {
   /**
    * Map, where each key/value pair is either the index of a character in the
-   * source file ({@linkcode Offset}) and a {@linkcode Point}, or a line and
-   * column in the source file and an offset.
+   * file ({@linkcode Offset}) and a {@linkcode Point}, or a line and column in
+   * the file and an offset.
    *
    * Both the key and value are relative to {@linkcode start}.
    *
-   * @private
-   * @readonly
+   * @see {@linkcode Indices}
+   *
+   * @public
    * @instance
-   * @member {Record<Offset, Readonly<Point>> & Record<string, Offset>}
+   * @member {Indices}
    */
-  readonly #indices: Record<Offset, Readonly<Point>> & Record<string, Offset>
+  public indices: Indices
+
+  /**
+   * Current point.
+   *
+   * > 👉 Useful for building an incremental index. This point is deeply equal
+   * > to {@linkcode start} when a file is auto-indexed and never altered.
+   *
+   * @see {@linkcode Point}
+   *
+   * @public
+   * @instance
+   * @member {Point} place
+   */
+  public place: Point
 
   /**
    * Point before first character in file.
@@ -49,6 +65,10 @@ class Location {
    * Pass a `start` point to make relative conversions. Any point or offset
    * accessed will be relative to the given point.
    *
+   * An incremental index can be built when `file` is `null` or `undefined`, in
+   * which case {@linkcode indices} (and {@linkcode place}) must be updated
+   * manually.
+   *
    * @see {@linkcode Point}
    * @see {@linkcode VFile}
    * @see {@linkcode Value}
@@ -60,9 +80,9 @@ class Location {
     file?: Value | VFile | null | undefined,
     start?: Point | null | undefined
   ) {
-    this.#indices = {}
-    this.start = Object.assign({}, start ?? { column: 1, line: 1, offset: 0 })
-    this.start = Object.freeze(this.start)
+    this.indices = {}
+    this.place = Object.assign({}, start ?? { column: 1, line: 1, offset: 0 })
+    this.start = { ...this.place }
 
     // index file
     if (file !== null && file !== undefined) {
@@ -74,8 +94,8 @@ class Location {
       const point: Point = { ...this.start }
 
       for (const char of String(file) + '\n') {
-        this.#indices[point.offset] = { ...point }
-        this.#indices[`${point.line}:${point.column}`] = point.offset
+        this.indices[point.offset] = { ...point }
+        this.indices[`${point.line}:${point.column}`] = point.offset
 
         // advance point
         if (/[\n\r]/.test(char)) {
@@ -106,7 +126,7 @@ class Location {
    * @return {Offset} Index of character in file or `-1`
    */
   public offset(point?: unist.Point | null | undefined): Offset {
-    return this.#indices[`${point?.line}:${point?.column}`] ?? -1
+    return this.indices[<never>`${point?.line}:${point?.column}`] ?? -1
   }
 
   /**
@@ -125,7 +145,7 @@ class Location {
    * @return {Point} Place in file
    */
   public point(offset?: Offset | null | undefined): Point {
-    return this.#indices[offset ?? Number.NaN] ?? {
+    return this.indices[offset ?? Number.NaN] ?? {
       column: -1,
       line: -1,
       offset: offset ?? -1

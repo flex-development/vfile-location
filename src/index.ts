@@ -5,3 +5,4 @@
 
 export type * from './interfaces'
 export { default as Location } from './location'
+export type * from './types'
