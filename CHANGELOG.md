@@ -1,3 +1,25 @@
+## [1.1.0](https://github.com/flex-development/vfile-location/compare/1.0.2...1.1.0) (2024-07-19)
+
+### :package: Build
+
+- [[`c7f3d12`](https://github.com/flex-development/vfile-location/commit/c7f3d12d150a7ccfc664025816c05c2226a1a8b7)] **deps-dev:** Bump @faker-js/faker from 9.0.0-alpha.1 to 9.0.0-rc.0 ([#129](https://github.com/flex-development/vfile-location/issues/129))
+- [[`912ad2b`](https://github.com/flex-development/vfile-location/commit/912ad2b5055904edaa2ee971d3b7b5c0cffac7b4)] **deps-dev:** Bump cspell from 8.10.4 to 8.11.0 ([#133](https://github.com/flex-development/vfile-location/issues/133))
+- [[`0f2d5ec`](https://github.com/flex-development/vfile-location/commit/0f2d5ecba57ab9b36794018c33136b18c934c62d)] **deps-dev:** Bump dprint from 0.47.1 to 0.47.2 ([#126](https://github.com/flex-development/vfile-location/issues/126))
+- [[`42942e3`](https://github.com/flex-development/vfile-location/commit/42942e371577aea4324d0d8d1b7b3b0e0c941628)] **deps-dev:** Bump eslint-plugin-jsdoc from 48.5.2 to 48.6.0 ([#122](https://github.com/flex-development/vfile-location/issues/122))
+- [[`256516d`](https://github.com/flex-development/vfile-location/commit/256516d13dd808478b6c561c95cd5f28c7b832a8)] **deps-dev:** Bump eslint-plugin-jsdoc from 48.6.0 to 48.7.0 ([#125](https://github.com/flex-development/vfile-location/issues/125))
+- [[`268b081`](https://github.com/flex-development/vfile-location/commit/268b08106f10d46d81d764a8bc02356b96924c9a)] **deps-dev:** Bump husky from 9.0.11 to 9.1.0 ([#134](https://github.com/flex-development/vfile-location/issues/134))
+- [[`15a744d`](https://github.com/flex-development/vfile-location/commit/15a744dcb561d60b82ccaabd9ee6b28c7dd4f25c)] **deps-dev:** Bump prettier from 3.3.2 to 3.3.3 ([#130](https://github.com/flex-development/vfile-location/issues/130))
+- [[`f26bcee`](https://github.com/flex-development/vfile-location/commit/f26bcee8be1275dfd1f11b005b722180bab90902)] **deps-dev:** Bump the eslint group with 2 updates ([#127](https://github.com/flex-development/vfile-location/issues/127))
+- [[`f17a6f5`](https://github.com/flex-development/vfile-location/commit/f17a6f554ebe55e2144c9a003b3a03d772d55605)] **deps-dev:** Bump the typescript-eslint group with 3 updates ([#128](https://github.com/flex-development/vfile-location/issues/128))
+- [[`971f5bc`](https://github.com/flex-development/vfile-location/commit/971f5bc58f158c51f7a9899649cd819230aae0d5)] **deps-dev:** Bump the vitest group with 3 updates ([#124](https://github.com/flex-development/vfile-location/issues/124))
+- [[`af08d73`](https://github.com/flex-development/vfile-location/commit/af08d7321485dd289e900f78d2eb8a567b9fffb1)] **deps-dev:** Bump the vitest group with 3 updates ([#131](https://github.com/flex-development/vfile-location/issues/131))
+- [[`ee41532`](https://github.com/flex-development/vfile-location/commit/ee41532c9769b8b7c1ad97b3c7c7220e9a9d37f6)] **deps:** Bump vfile from 6.0.1 to 6.0.2 ([#132](https://github.com/flex-development/vfile-location/issues/132))
+
+### :sparkles: Features
+
+- [[`e33ad43`](https://github.com/flex-development/vfile-location/commit/e33ad43076019fcc76684a5f6cc170c616fdfee7)] incremental index support
+- [[`5bf2368`](https://github.com/flex-development/vfile-location/commit/5bf2368585550f826663af20b0f1e69ea6b625b2)] nilable `file`
+
 ## [1.0.2](https://github.com/flex-development/vfile-location/compare/1.0.1...1.0.2) (2024-07-08)
 
 ### :package: Build
@@ -118,6 +140,7 @@
 ### :house_with_garden: Housekeeping
 
 - [[`366deb3`](https://github.com/flex-development/vfile-location/commit/366deb338fe10ce327ec9b46db1a2fedca2669ca)] initial commit
+
 
 
 
