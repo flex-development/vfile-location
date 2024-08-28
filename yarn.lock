@@ -1927,7 +1927,7 @@ __metadata:
     ts-dedent: "npm:2.2.0"
     typescript: "npm:5.5.3"
     typescript-eslint: "npm:8.3.0"
-    vfile: "npm:6.0.2"
+    vfile: "npm:6.0.3"
     vitest: "npm:2.0.5"
     yaml-eslint-parser: "npm:1.2.3"
   languageName: unknown
@@ -10235,7 +10235,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vfile@npm:6.0.2, vfile@npm:^6.0.0, vfile@npm:^6.0.1":
+"vfile@npm:6.0.3":
+  version: 6.0.3
+  resolution: "vfile@npm:6.0.3"
+  dependencies:
+    "@types/unist": "npm:^3.0.0"
+    vfile-message: "npm:^4.0.0"
+  checksum: 10/a5a85293c9eb8787aa42e180edaef00c13199a493d6ed82fecf13ab29a68526850788e22434d77808ea6b17a74e03ff899b9b4711df5b9eee75afcddd7c2e1fb
+  languageName: node
+  linkType: hard
+
+"vfile@npm:^6.0.0, vfile@npm:^6.0.1":
   version: 6.0.2
   resolution: "vfile@npm:6.0.2"
   dependencies:
