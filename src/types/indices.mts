@@ -3,9 +3,8 @@
  * @module vfile-location/types/Indices
  */
 
-import type { Point } from '#src/interfaces'
 import type { Offset } from '@flex-development/unist-util-types'
-import type SerializedPoint from './serialized-point'
+import type { Point, SerializedPoint } from '@flex-development/vfile-location'
 
 /**
  * Map, where each key/value pair is either the index of a character in a

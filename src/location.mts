@@ -4,10 +4,9 @@
  */
 
 import type { Offset } from '@flex-development/unist-util-types'
+import type { Indices, Point } from '@flex-development/vfile-location'
 import type * as unist from 'unist'
 import type { VFile, Value } from 'vfile'
-import type { Point } from './interfaces'
-import type { Indices } from './types'
 
 /**
  * Location index.
@@ -126,7 +125,7 @@ class Location {
    * @return {Offset} Index of character in file or `-1`
    */
   public offset(point?: unist.Point | null | undefined): Offset {
-    return this.indices[<never>`${point?.line}:${point?.column}`] ?? -1
+    return this.indices[`${point?.line}:${point?.column}` as never] ?? -1
   }
 
   /**

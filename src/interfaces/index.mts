@@ -3,4 +3,4 @@
  * @module vfile-location/interfaces
  */
 
-export type { default as Point } from './point'
+export type { default as Point } from '#interfaces/point'

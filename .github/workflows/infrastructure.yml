@@ -45,19 +45,19 @@ jobs:
         uses: hmarr/debug-action@v3.0.0
       - id: bot-token
         name: Get bot token
-        uses: actions/create-github-app-token@v1.11.0
+        uses: actions/create-github-app-token@v2.1.4
         with:
           app-id: ${{ secrets.BOT_APP_ID }}
           private-key: ${{ secrets.BOT_PRIVATE_KEY }}
       - id: checkout
         name: Checkout ${{ github.ref_name }}@${{ github.sha }}
-        uses: actions/checkout@v4.2.2
+        uses: actions/checkout@v5.0.0
         with:
           persist-credentials: false
           ref: ${{ github.sha }}
           token: ${{ steps.bot-token.outputs.token }}
       - id: update
         name: Update repository infrastructure
-        uses: flex-development/rice-action@1.0.0
+        uses: flex-development/repostructure-action@1.0.0
         with:
           token: ${{ steps.bot-token.outputs.token }}

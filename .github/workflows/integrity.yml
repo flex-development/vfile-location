@@ -29,21 +29,17 @@ on:
       - .yarnrc.yml
       - yarn.lock
   workflow_dispatch:
-permissions:
-  packages: read
-env:
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 concurrency:
   cancel-in-progress: true
   group: ${{ github.workflow }}-${{ github.ref }}
 jobs:
   integrity:
-    if: github.actor != 'dependabot[bot]'
+    if: github.actor != '${{ vars.DEPENDABOT }}'
     runs-on: ubuntu-latest
     steps:
       - id: checkout
         name: Checkout ${{ github.head_ref || github.ref_name }}
-        uses: actions/checkout@v4.2.2
+        uses: actions/checkout@v5.0.0
         with:
           persist-credentials: false
           ref: ${{ github.head_ref || github.ref }}

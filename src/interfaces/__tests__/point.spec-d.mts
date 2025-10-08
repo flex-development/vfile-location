@@ -3,9 +3,9 @@
  * @module vfile-location/interfaces/tests/unit-d/Point
  */
 
+import type TestSubject from '#interfaces/point'
 import type { Column, Line, Offset } from '@flex-development/unist-util-types'
 import type * as unist from 'unist'
-import type TestSubject from '../point'
 
 describe('unit-d:interfaces/Point', () => {
   it('should match [column: Column]', () => {

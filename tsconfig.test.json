@@ -1,0 +1,6 @@
+{
+  "compilerOptions": {
+    "customConditions": ["vfile-location", "development", "node"]
+  },
+  "extends": "./tsconfig.json"
+}

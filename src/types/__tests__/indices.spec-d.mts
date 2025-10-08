@@ -3,10 +3,9 @@
  * @module vfile-location/types/tests/unit-d/Indices
  */
 
-import type { Point } from '#src/interfaces'
+import type TestSubject from '#types/indices'
 import type { Offset } from '@flex-development/unist-util-types'
-import type TestSubject from '../indices'
-import type SerializedPoint from '../serialized-point'
+import type { Point, SerializedPoint } from '@flex-development/vfile-location'
 
 describe('unit-d:types/Indices', () => {
   it('should match [[offset: Offset]: Point]', () => {

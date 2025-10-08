@@ -3,12 +3,13 @@
  * @module vfile-location/tests/unit/Location
  */
 
-import type { Point } from '#src/interfaces'
+import TestSubject from '#location'
+import { faker } from '@faker-js/faker'
 import type { Times } from '@flex-development/tutils'
 import type { Offset } from '@flex-development/unist-util-types'
+import type { Point } from '@flex-development/vfile-location'
 import { read } from 'to-vfile'
 import type { VFile } from 'vfile'
-import TestSubject from '../location'
 
 describe('unit:Location', () => {
   let fi: string

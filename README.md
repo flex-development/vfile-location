@@ -1,16 +1,19 @@
 # vfile-location
 
-[![github release](https://img.shields.io/github/v/release/flex-development/vfile-location.svg?include_prereleases&sort=semver)](https://github.com/flex-development/vfile-location/releases/latest)
+[![ci](https://github.com/flex-development/vfile-location/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/flex-development/vfile-location/actions/workflows/ci.yml)
+[![github release](https://img.shields.io/github/v/release/flex-development/vfile-location.svg?include_prereleases\&sort=semver)](https://github.com/flex-development/vfile-location/releases/latest)
 [![npm](https://img.shields.io/npm/v/@flex-development/vfile-location.svg)](https://npmjs.com/package/@flex-development/vfile-location)
+[![npm downloads](https://img.shields.io/npm/dm/@flex-development/vfile-location.svg)](https://www.npmcharts.com/compare/@flex-development/vfile-location?interval=30)
+[![install size](https://packagephobia.now.sh/badge?p=@flex-development/vfile-location)](https://packagephobia.now.sh/result?p=@flex-development/vfile-location)
 [![codecov](https://codecov.io/gh/flex-development/vfile-location/graph/badge.svg?token=81iuGRII5a)](https://codecov.io/gh/flex-development/vfile-location)
 [![module type: esm](https://img.shields.io/badge/module%20type-esm-brightgreen)](https://github.com/voxpelli/badges-cjs-esm)
 [![license](https://img.shields.io/github/license/flex-development/vfile-location.svg)](LICENSE.md)
-[![conventional commits](https://img.shields.io/badge/-conventional%20commits-fe5196?logo=conventional-commits&logoColor=ffffff)](https://conventionalcommits.org/)
-[![typescript](https://img.shields.io/badge/-typescript-3178c6?logo=typescript&logoColor=ffffff)](https://typescriptlang.org/)
-[![vitest](https://img.shields.io/badge/-vitest-6e9f18?style=flat&logo=vitest&logoColor=ffffff)](https://vitest.dev/)
-[![yarn](https://img.shields.io/badge/-yarn-2c8ebb?style=flat&logo=yarn&logoColor=ffffff)](https://yarnpkg.com/)
+[![conventional commits](https://img.shields.io/badge/-conventional%20commits-fe5196?logo=conventional-commits\&logoColor=ffffff)](https://conventionalcommits.org/)
+[![typescript](https://img.shields.io/badge/-typescript-3178c6?logo=typescript\&logoColor=ffffff)](https://typescriptlang.org/)
+[![vitest](https://img.shields.io/badge/-vitest-6e9f18?style=flat\&logo=vitest\&logoColor=ffffff)](https://vitest.dev/)
+[![yarn](https://img.shields.io/badge/-yarn-2c8ebb?style=flat\&logo=yarn\&logoColor=ffffff)](https://yarnpkg.com/)
 
-[vfile][vfile] utility to convert between point (line/column) and offset (range) based locations
+[vfile][] utility to convert between point (line/column) and offset (range) based locations
 
 ## Contents
 
@@ -36,18 +39,18 @@
 
 ## What is this?
 
-This is a tiny but useful package that facilitates conversions between [points and offsets][point] in a file.
+This is a tiny, but useful, package that facilitates conversions between [points and offsets][point] in a file.
 
 ## When should I use this?
 
-This utility is useful when adding [*positional information*][positional-information] to [unist][unist] nodes, or when
-building packages that require location data, such as a set of lint rules.
+This utility is useful when adding [*positional information*][positional-information] to [unist][] nodes,
+or when building packages that require location data, such as a set of lint rules.
 
 ## Install
 
 This package is [ESM only][esm].
 
-In Node.js (version 18+) with [yarn][yarn]:
+In Node.js (18+) with [yarn][]:
 
 ```sh
 yarn add @flex-development/vfile-location
@@ -56,7 +59,7 @@ yarn add @flex-development/vfile-location
 <blockquote>
   <small>
     See <a href='https://yarnpkg.com/protocol/git'>Git - Protocols | Yarn</a>
-    &nbsp;for details regarding installing from Git.
+    &nbsp;for info regarding installing from Git.
   </small>
 </blockquote>
 
@@ -72,6 +75,12 @@ In browsers with [`esm.sh`][esmsh]:
 <script type="module">
   import { Location } from 'https://esm.sh/@flex-development/vfile-location'
 </script>
+```
+
+With [bun][]:
+
+```sh
+bun add @flex-development/vfile-location
 ```
 
 ## Use
@@ -111,8 +120,10 @@ Pass a `start` point to make relative conversions. Any point or offset accessed 
 An incremental index can be built when `file` is `null` or `undefined`, in which case [`indices`](#locationindices) (and
 [`place`](#locationplace)) must be updated manually.
 
-- `file` ([`Value`][vfile-value] | [`VFile`][vfile-api] | `null` | `undefined`) &mdash; file to index
-- `start` ([`Point`](#point) | `null` | `undefined`) &mdash; point before first character
+- `file` ([`Value`][vfile-value] | [`VFile`][vfile-api] | `null` | `undefined`)
+  — file to index
+- `start` ([`Point`](#point) | `null` | `undefined`)
+  — point before first character
 
 #### `Location#indices`
 
@@ -129,7 +140,8 @@ Get an offset for `point`.
 
 ##### Parameters
 
-- `point` ([`unist.Point`][point] | `null` | `undefined`) &mdash; place in file
+- `point` ([`unist.Point`][point] | `null` | `undefined`)
+  — place in file
 
 ##### Returns
 
@@ -152,7 +164,8 @@ Get a point for `offset`.
 
 ##### Parameters
 
-- `offset` ([`Offset`](#offset) | `null` | `undefined`) &mdash; index of character in file
+- `offset` ([`Offset`](#offset) | `null` | `undefined`)
+  — index of character in file
 
 ##### Returns
 
@@ -202,9 +215,12 @@ One place in a source file (TypeScript interface).
 
 #### Properties
 
-- `column` ([`Column`](#column)) &mdash; column in source file (`1`-indexed integer)
-- `line` ([`Line`](#line)) &mdash; line in source file (`1`-indexed integer)
-- `offset` ([`Offset`](#offset)) &mdash; index of character in source file (`0`-indexed integer)
+- `column` ([`Column`](#column))
+  — column in source file (`1`-indexed integer)
+- `line` ([`Line`](#line))
+  — line in source file (`1`-indexed integer)
+- `offset` ([`Offset`](#offset))
+  — index of character in source file (`0`-indexed integer)
 
 ### `SerializedPoint`
 
@@ -216,22 +232,33 @@ type SerializedPoint = `${Line}:${Column}`
 
 ## Types
 
-This package is fully typed with [TypeScript][typescript].
+This package is fully typed with [TypeScript][].
 
 ## Contribute
 
 See [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
-This project has a [code of conduct](CODE_OF_CONDUCT.md). By interacting with this repository, organization, or
+This project has a [code of conduct](./CODE_OF_CONDUCT.md). By interacting with this repository, organization, or
 community you agree to abide by its terms.
 
+[bun]: https://bun.sh
+
 [esm]: https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c
-[esmsh]: https://esm.sh/
+
+[esmsh]: https://esm.sh
+
 [point]: https://github.com/syntax-tree/unist#point
+
 [positional-information]: https://github.com/syntax-tree/unist#positional-information
+
 [typescript]: https://www.typescriptlang.org
+
 [unist]: https://github.com/syntax-tree/unist
+
 [vfile]: https://github.com/vfile/vfile
+
 [vfile-api]: https://github.com/vfile/vfile#vfileoptions
+
 [vfile-value]: https://github.com/vfile/vfile#value
+
 [yarn]: https://yarnpkg.com
