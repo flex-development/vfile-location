@@ -2044,7 +2044,7 @@ __metadata:
     "@types/chai": "npm:5.2.2"
     "@types/is-ci": "npm:3.0.4"
     "@types/node-notifier": "npm:8.0.5"
-    "@types/unist": "npm:3.0.2"
+    "@types/unist": "npm:3.0.3"
     "@vates/toggle-scripts": "npm:1.0.0"
     "@vitest/coverage-v8": "npm:3.2.4"
     "@vitest/ui": "npm:3.2.4"
@@ -2855,10 +2855,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/unist@npm:3.0.2":
-  version: 3.0.2
-  resolution: "@types/unist@npm:3.0.2"
-  checksum: 10/3d04d0be69316e5f14599a0d993a208606c12818cf631fd399243d1dc7a9bd8a3917d6066baa6abc290814afbd744621484756803c80cba892c39cd4b4a85616
+"@types/unist@npm:3.0.3":
+  version: 3.0.3
+  resolution: "@types/unist@npm:3.0.3"
+  checksum: 10/96e6453da9e075aaef1dc22482463898198acdc1eeb99b465e65e34303e2ec1e3b1ed4469a9118275ec284dc98019f63c3f5d49422f0e4ac707e5ab90fb3b71a
   languageName: node
   linkType: hard
 

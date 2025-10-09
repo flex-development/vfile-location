@@ -108,7 +108,7 @@
   },
   "dependencies": {
     "@flex-development/unist-util-types": "1.6.1",
-    "@types/unist": "3.0.2",
+    "@types/unist": "3.0.3",
     "vfile": "6.0.3"
   },
   "devDependencies": {
@@ -155,7 +155,7 @@
     "vitest": "3.2.4"
   },
   "resolutions": {
-    "@types/unist": "3.0.2"
+    "@types/unist": "3.0.3"
   },
   "packageManager": "yarn@4.10.3",
   "sideEffects": false
