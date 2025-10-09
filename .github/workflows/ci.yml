@@ -253,6 +253,8 @@ jobs:
           - 22
           - 21
           - 20
+          - 19
+          - 18
     env:
       CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
     steps:
