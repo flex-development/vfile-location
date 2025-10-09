@@ -1,0 +1,26 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@flex-development/vfile-location</title>
+  </head>
+
+  <body>
+    <script type="module">
+      import { Location } from '@flex-development/vfile-location'
+      import { logger } from '@flex-development/log'
+
+      const file = await (await fetch('/@fs/src/location.mts')).text()
+      const location = new Location(file)
+      const point = { column: 1, line: 18, offset: 389 }
+
+      console.log(file)
+
+      logger.inspect(location.offset({ ...point, offset: undefined }))
+      logger.inspect(location.point(point.offset))
+    </script>
+  </body>
+</html>
