@@ -2064,7 +2064,7 @@ __metadata:
     "@flex-development/tutils": "npm:6.0.0-alpha.25"
     "@flex-development/unist-util-types": "npm:1.6.1"
     "@tsconfig/strictest": "npm:2.0.6"
-    "@types/chai": "npm:5.2.2"
+    "@types/chai": "npm:5.2.3"
     "@types/is-ci": "npm:3.0.4"
     "@types/node-notifier": "npm:8.0.5"
     "@types/unist": "npm:3.0.3"
@@ -2657,7 +2657,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/chai@npm:5.2.2, @types/chai@npm:^5.2.2":
+"@types/chai@npm:5.2.3":
+  version: 5.2.3
+  resolution: "@types/chai@npm:5.2.3"
+  dependencies:
+    "@types/deep-eql": "npm:*"
+    assertion-error: "npm:^2.0.1"
+  checksum: 10/e79947307dc235953622e65f83d2683835212357ca261389116ab90bed369ac862ba28b146b4fed08b503ae1e1a12cb93ce783f24bb8d562950469f4320e1c7c
+  languageName: node
+  linkType: hard
+
+"@types/chai@npm:^5.2.2":
   version: 5.2.2
   resolution: "@types/chai@npm:5.2.2"
   dependencies:
