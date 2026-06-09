@@ -153,7 +153,7 @@
     "typescript": "6.0.3",
     "unified": "11.0.5",
     "vfile": "6.0.3",
-    "vitest": "3.2.4"
+    "vitest": "3.2.6"
   },
   "resolutions": {
     "@types/unist": "3.0.3"
